@@ -1,0 +1,10 @@
+site_name: pytest-tape
+site_description: easy assertion with expected results saved to yaml files
+site_author: Alexey Chugunov
+
+theme: readthedocs
+
+repo_url: https://github.com/a-chugunov/pytest-tape
+
+pages:
+- Home: index.md
