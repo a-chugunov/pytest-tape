@@ -18,23 +18,23 @@ pytest-tape
     :target: https://ci.appveyor.com/project/a-chugunov/pytest-tape/branch/master
     :alt: See Build Status on AppVeyor
 
-Easy assertion with expected results saved to yaml files
+Easy assertion with expected results saved to yaml files.
 
-----
-
-This `pytest`_ plugin was generated with `Cookiecutter`_ along with `@hackebrot`_'s `cookiecutter-pytest-plugin`_ template.
 
 
 Features
 --------
 
-* TODO
-
+* Creates yaml files for expected test results , a.k.a. tape.
+* Creates separate tape for each test file. Each tape stores results for all tests that have utilised tape fixture.
+* supports parametrized tests, as long as all parameters can be jsonified.
+* Hash functions are used to store and identify params.
+* Expected results are stored as dictionaries in yaml, so that they can be compared using tolerances.
 
 Requirements
 ------------
 
-* TODO
+* python >= 3.6
 
 
 Installation
@@ -48,7 +48,18 @@ You can install "pytest-tape" via `pip`_ from `PyPI`_::
 Usage
 -----
 
-* TODO
+Just use  :code:`tape` fixture in any of the tests and assert dictionary of results with it.
+
+.. code-block:: python
+
+    def test_correctness(tape):
+        result_of_calc = {
+        'a': [1,2,3], 'b':'Another_Random_Result', 'c':45.99
+        }
+        assert tape == result_of_calc
+
+First time the tests fails, tape writes to yaml file.
+Second and all subsequent times you run the test - it compares the result with what is on tape.
 
 Contributing
 ------------
@@ -65,6 +76,14 @@ Issues
 ------
 
 If you encounter any problems, please `file an issue`_ along with a detailed description.
+
+
+
+Acknowledgments
+---------------
+
+This `pytest`_ plugin was generated with `Cookiecutter`_ along with `@hackebrot`_'s `cookiecutter-pytest-plugin`_ template.
+
 
 .. _`Cookiecutter`: https://github.com/audreyr/cookiecutter
 .. _`@hackebrot`: https://github.com/hackebrot
