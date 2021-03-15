@@ -7,7 +7,7 @@ pytest-tape
     :alt: PyPI version
 
 .. image:: https://img.shields.io/pypi/pyversions/pytest-tape.svg
-    :target: https://pypi.org/project/pytest-tape
+    :target: https://test.pypi.org/project/pytest-tape
     :alt: Python versions
 
 .. image:: https://travis-ci.org/a-chugunov/pytest-tape.svg?branch=master
@@ -18,7 +18,7 @@ pytest-tape
     :target: https://ci.appveyor.com/project/a-chugunov/pytest-tape/branch/master
     :alt: See Build Status on AppVeyor
 
-easy assertion with expected results saved to yaml files
+Easy assertion with expected results saved to yaml files
 
 ----
 

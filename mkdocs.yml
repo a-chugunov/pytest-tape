@@ -6,5 +6,8 @@ theme: readthedocs
 
 repo_url: https://github.com/a-chugunov/pytest-tape
 
+nav:
+  - Home: index.md
+
 pages:
 - Home: index.md
