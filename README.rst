@@ -54,7 +54,7 @@ Just use  :code:`tape` fixture in any of the tests and assert dictionary of resu
 
     def test_correctness(tape):
         result_of_calc = {
-        'a': [1,2,3], 'b':'Another_Random_Result', 'c':45.99
+        'a': [1,2,3], 'b':'Another_Random_Result', 'c': 45.99
         }
         assert tape == result_of_calc
 

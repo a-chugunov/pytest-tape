@@ -3,9 +3,29 @@
 import pytest
 
 import os
+import atexit
 import yaml
 import json
 import hashlib
+
+
+# def pytest_addoption(parser):
+#     group = parser.getgroup('tape')
+#     group.addoption(
+#         '--foo',
+#         action='store',
+#         dest='dest_foo',
+#         default='{% now "utc", "%Y" %}',
+#         help='Set the value for the fixture "bar".'
+#     )
+#
+#     parser.addini('HELLO', 'Dummy pytest.ini setting')
+
+
+@pytest.fixture
+def bar(request):
+    return request.config.option.dest_foo
+
 
 def pytest_addoption(parser):
     group = parser.getgroup('tape')
@@ -37,6 +57,7 @@ def pytest_addoption(parser):
 def _tape_class(request):
     class _TapeClass:
         def __init__(self):
+            atexit.register(self.cleanup)
             self._test_name = None
             self._test_params = None
             self._test_tape = None
@@ -45,10 +66,10 @@ def _tape_class(request):
             self._folder = os.path.join(request.fspath.dirname, 'tape')
             self._filename = os.path.join(self._folder, f'{request.module.__name__}.yaml')
 
-            self.rel_tolerance = request.config.getoption('--reltolerance')
-            self.abs_tolerance = request.config.getoption('--abstolerance')
+            self.rel_tolerance = request.config.getoption('--tape-rel-tolerance')
+            self.abs_tolerance = request.config.getoption('--tape-abs-tolerance')
 
-            self.overwrite_tape = request.config.getoption('--overwritetape')
+            self.overwrite_tape = request.config.getoption('--tape-overwrite')
 
             # Create directory if does not exist
             if not os.path.exists(self._folder):
@@ -59,7 +80,8 @@ def _tape_class(request):
                 with open(self._filename) as f:
                     self._module_tape = yaml.safe_load(f) or {}
 
-        def __del__(self):
+
+        def cleanup(self):
             # On delete we want to save all results
             self._write_tape()
 
@@ -84,9 +106,12 @@ def _tape_class(request):
             for key, value in params.items():
                 self._test_params[key] = str(value)
 
-            self._test_params = hashlib.sha224(
-                    json.dumps(self._test_params, sort_keys=True)
-                ).hexdigest()
+            if self._test_params == {}:
+                self._test_params = 'None'
+            else:
+                self._test_params = hashlib.sha224(
+                        json.dumps(self._test_params, sort_keys=True)
+                    ).hexdigest()
 
             if self._test_name not in self._module_tape.keys():
                 self._module_tape.update({ self._test_name: [] })
@@ -104,6 +129,7 @@ def _tape_class(request):
             else:
                 assert 0, 'Suplicate results in file - please clean it'
 
+
             return self
 
         def __eq__(self, other):
@@ -117,6 +143,7 @@ def _tape_class(request):
             # if no result - save in yaml and FAIL the test
             if (self._test_tape is None) or self.overwrite_tape:
                 self._add_to_tape(other)
+                self._write_tape()
                 return False
 
             # compare with available result
