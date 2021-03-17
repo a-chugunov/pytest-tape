@@ -14,6 +14,8 @@ def test_help_message(pytester):
         '*--tape-overwrite*Tape overwrite.*',
     ])
 
+def test_very_simple():
+    assert 0 == 0, 'well, this should work'
 
 def test_tape_simple(pytester, tmpdir):
 
