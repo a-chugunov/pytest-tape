@@ -14,8 +14,8 @@ pytest-tape
     :target: https://github.com/a-chugunov/pytest-tape
     :alt: See Build Status on Github Actions
 
-.. image:: https://travis-ci.org/a-chugunov/pytest-tape.svg?branch=master
-    :target: https://travis-ci.org/a-chugunov/pytest-tape
+.. image:: https://travis-ci.com/a-chugunov/pytest-tape.svg?branch=master
+    :target: https://travis-ci.com/a-chugunov/pytest-tape
     :alt: See Build Status on Travis CI
 
 .. image:: https://ci.appveyor.com/api/projects/status/github/a-chugunov/pytest-tape?branch=master
