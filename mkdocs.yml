@@ -1,13 +1,19 @@
 site_name: pytest-tape
+site_url: https://a-chugunov.github.io/pytest-tape/
 site_description: easy assertion with expected results saved to yaml files
 site_author: Alexey Chugunov
 
 theme: readthedocs
 
-repo_url: https://github.com/a-chugunov/pytest-tape
+repo_url: https://github.com/a-chugunov/pytest-tape/
 
 nav:
-  - Home: index.md
-
-pages:
 - Home: index.md
+- About:
+  - License: license.md
+  - Release Notes: release-notes.md
+
+copyright: Copyright &copy; 2021 <a href="https://chugunov.dev">Alexey Chugunov</a>,. Maintained by <a href="https://chugunov.dev">Alexey Chugunov</a>.
+
+plugins:
+  - search

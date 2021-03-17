@@ -13,17 +13,22 @@ def read(fname):
 
 setup(
     name='pytest-tape',
-    version='0.1.0',
+    version='0.1.1',
     author='Alexey Chugunov',
     author_email='alexey@chugunov.dev',
     maintainer='Alexey Chugunov',
     maintainer_email='alexey@chugunov.dev',
     license='MIT',
     url='https://github.com/a-chugunov/pytest-tape',
+    project_urls={
+        'Tracker': 'https://github.com/a-chugunov/pytest-tape/issues',
+        'Source': 'https://github.com/a-chugunov/pytest-tape',
+        'Documentation': 'https://a-chugunov.github.io/pytest-tape',
+    },
     description='easy assertion with expected results saved to yaml files',
     long_description=read('README.rst'),
     py_modules=['pytest_tape'],
-    python_requires='>=3.5',
+    python_requires='>=3.6',
     install_requires=['pytest>=6.2.0','pyyaml>=5.1'],
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -35,6 +40,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3 :: Only',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
