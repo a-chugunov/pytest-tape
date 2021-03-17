@@ -22,6 +22,10 @@ pytest-tape
     :target: https://ci.appveyor.com/project/a-chugunov/pytest-tape/branch/master
     :alt: See Build Status on AppVeyor
 
+.. image:: https://codecov.io/gh/a-chugunov/pytest-tape/branch/master/graph/badge.svg?token=RRX412FLU8
+    :target: https://codecov.io/gh/a-chugunov/pytest-tape
+    :alt: See Coverage on CodeCov
+
 Easy assertion with expected results saved to yaml files.
 
 

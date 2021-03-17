@@ -9,11 +9,6 @@ import json
 import hashlib
 
 
-@pytest.fixture
-def bar(request):
-    return request.config.option.dest_foo
-
-
 def pytest_addoption(parser):
     group = parser.getgroup('tape')
     group.addoption(

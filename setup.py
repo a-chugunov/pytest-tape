@@ -13,7 +13,7 @@ def read(fname):
 
 setup(
     name='pytest-tape',
-    version='0.1.1',
+    version='0.1.0',
     author='Alexey Chugunov',
     author_email='alexey@chugunov.dev',
     maintainer='Alexey Chugunov',
