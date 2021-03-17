@@ -8,6 +8,7 @@ import yaml
 import json
 import hashlib
 
+
 @pytest.fixture
 def bar(request):
     return request.config.option.dest_foo
