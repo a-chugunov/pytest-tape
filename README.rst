@@ -7,8 +7,12 @@ pytest-tape
     :alt: PyPI version
 
 .. image:: https://img.shields.io/pypi/pyversions/pytest-tape.svg
-    :target: https://test.pypi.org/project/pytest-tape
+    :target: https://pypi.org/project/pytest-tape
     :alt: Python versions
+
+.. image:: https://github.com/a-chugunov/pytest-tape/actions/workflows/python-package.yml/badge.svg?branch=master
+    :target: https://github.com/a-chugunov/pytest-tape
+    :alt: See Build Status on Github Actions
 
 .. image:: https://travis-ci.org/a-chugunov/pytest-tape.svg?branch=master
     :target: https://travis-ci.org/a-chugunov/pytest-tape
