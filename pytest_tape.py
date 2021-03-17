@@ -125,7 +125,6 @@ def _tape_class(request):
             :param other: results against which we're comparing
             :return:
             """
-
             # if no result - save in yaml and FAIL the test
             if (self._test_tape is None) or self.overwrite_tape:
                 self._add_to_tape(other)
